@@ -6,3 +6,10 @@ function randomNumber(){
 let turn = 1
 
 randomNumber()
+
+const triedNumbersArray = []
+
+document.getElementById("send-answer").addEventListener("click", () => {
+    triedNumbersArray.push(document.getElementById("input-number").value)
+    document.getElementById("triedNumbers").innerHTML = triedNumbersArray
+})
