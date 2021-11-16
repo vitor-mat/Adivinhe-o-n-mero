@@ -3,4 +3,6 @@ function randomNumber(){
     return console.log(answer)
 }
 
+let turn = 1
+
 randomNumber()
