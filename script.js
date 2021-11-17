@@ -53,4 +53,5 @@ sendAnswer.addEventListener("click", () => {
         inputNumber.disabled = true;
     }
     triedNumbers.innerHTML = triedNumbersArray
+    inputNumber.value = ""
 })
