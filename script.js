@@ -1,15 +1,21 @@
+let answer
+
 function randomNumber(){
-    const answer = Math.floor((Math.random()*100)+1)
-    return console.log(answer)
+    answer = Math.floor((Math.random()*100)+1)
+    alert(answer)
 }
 
-let turn = 1
-
 randomNumber()
+
+let turn = 1
 
 const triedNumbersArray = []
 
 document.getElementById("send-answer").addEventListener("click", () => {
-    triedNumbersArray.push(document.getElementById("input-number").value)
+    const inputNumber = Number(document.getElementById("input-number").value)
+    triedNumbersArray.push(inputNumber)
+    if(answer === inputNumber){
+        alert("acertou")
+    }
     document.getElementById("triedNumbers").innerHTML = triedNumbersArray
 })
