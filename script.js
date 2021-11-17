@@ -9,16 +9,34 @@ randomNumber()
 
 let turn = 1
 
-const triedNumbersArray = []
+let triedNumbersArray = []
 
+const info = document.getElementById("info")
 
-function congratulations(info){
-    const p = document.createElement("p")
-    p.textContent = "Parabéns, Você acertou o número!"
-    info.appendChild(p)
+function congratulations(){
+    info.textContent = "Parabéns, Você acertou o número!"
 }
 
 const sendAnswer = document.getElementById("send-answer")
+
+const triedNumbers = document.getElementById("triedNumbers")
+
+function newGame(info, inputNumber){
+    const newGameBtn = document.createElement("button")
+    newGameBtn.textContent = "Iniciar novo Jogo"
+    const main = document.getElementsByTagName("main")[0]
+    main.appendChild(newGameBtn)
+    newGameBtn.addEventListener("click", () => {
+        turn = 1
+        inputNumber.disabled = false
+        sendAnswer.disabled = false;
+        triedNumbersArray = []
+        info.textContent = ""
+        main.removeChild(newGameBtn)
+        triedNumbers.innerHTML = ""
+        randomNumber()
+    })
+}
 
 sendAnswer.addEventListener("click", () => {
 
@@ -29,9 +47,10 @@ sendAnswer.addEventListener("click", () => {
     triedNumbersArray.push(Number(inputNumber.value))
 
     if(answer === Number(inputNumber.value)){
-        congratulations(info)
+        congratulations()
+        newGame(info, inputNumber)
         sendAnswer.disabled = true;
         inputNumber.disabled = true;
     }
-    document.getElementById("triedNumbers").innerHTML = triedNumbersArray
+    triedNumbers.innerHTML = triedNumbersArray
 })
