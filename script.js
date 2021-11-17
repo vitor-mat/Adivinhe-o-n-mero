@@ -11,11 +11,27 @@ let turn = 1
 
 const triedNumbersArray = []
 
-document.getElementById("send-answer").addEventListener("click", () => {
-    const inputNumber = Number(document.getElementById("input-number").value)
-    triedNumbersArray.push(inputNumber)
-    if(answer === inputNumber){
-        alert("acertou")
+
+function congratulations(info){
+    const p = document.createElement("p")
+    p.textContent = "Parabéns, Você acertou o número!"
+    info.appendChild(p)
+}
+
+const sendAnswer = document.getElementById("send-answer")
+
+sendAnswer.addEventListener("click", () => {
+
+    const info = document.getElementById("info")
+
+    const inputNumber = document.getElementById("input-number")
+
+    triedNumbersArray.push(Number(inputNumber.value))
+
+    if(answer === Number(inputNumber.value)){
+        congratulations(info)
+        sendAnswer.disabled = true;
+        inputNumber.disabled = true;
     }
     document.getElementById("triedNumbers").innerHTML = triedNumbersArray
 })
