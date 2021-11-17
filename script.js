@@ -17,6 +17,8 @@ const sendAnswer = document.getElementById("send-answer")
 
 const triedNumbers = document.getElementById("triedNumbers")
 
+const inputNumber = document.getElementById("input-number")
+
 function newGame(info, inputNumber){
     const newGameBtn = document.createElement("button")
     newGameBtn.textContent = "Iniciar novo Jogo"
@@ -31,6 +33,7 @@ function newGame(info, inputNumber){
         main.removeChild(newGameBtn)
         triedNumbers.innerHTML = ""
         randomNumber()
+        inputNumber.focus()
     })
 }
 
@@ -38,7 +41,7 @@ sendAnswer.addEventListener("click", () => {
 
     const info = document.getElementById("info")
 
-    const inputNumber = document.getElementById("input-number")
+
 
     triedNumbersArray.push(Number(inputNumber.value))
 
@@ -70,4 +73,7 @@ sendAnswer.addEventListener("click", () => {
 
     triedNumbers.innerHTML = triedNumbersArray
     inputNumber.value = ""
+    inputNumber.focus()
 })
+
+inputNumber.focus()
