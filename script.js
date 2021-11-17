@@ -42,24 +42,32 @@ sendAnswer.addEventListener("click", () => {
 
     triedNumbersArray.push(Number(inputNumber.value))
 
-    if(answer === Number(inputNumber.value)){
-        info.textContent = "Parabéns, Você acertou o número!"
-        newGame(info, inputNumber)
-        sendAnswer.disabled = true;
-        inputNumber.disabled = true;
-    }
 
-    if(answer > Number(inputNumber.value)){
-        info.textContent = "Você errou, número muito baixo!"
-        turn++
-    }
+        if(answer === Number(inputNumber.value)){
+            info.textContent = "Parabéns, Você acertou o número!"
+            newGame(info, inputNumber)
+            sendAnswer.disabled = true;
+            inputNumber.disabled = true;
+        }
+    
+        if(answer > Number(inputNumber.value)){
+            info.textContent = "Você errou, número muito baixo!"
+            turn++
+        }
+    
+        if(answer < Number(inputNumber.value)){
+            info.textContent = "Você errou, número muito alto!"
+            turn++
+        }
 
-    if(answer < Number(inputNumber.value)){
-        info.textContent = "Você errou, número muito alto!"
-        turn++
-    }
+        if(turn > 10){
+            info.textContent = `Você perdeu, o número correto era ${answer}. Tente novamente!`
+            newGame(info, inputNumber)
+            sendAnswer.disabled = true;
+            inputNumber.disabled = true;
+        }
+
 
     triedNumbers.innerHTML = triedNumbersArray
     inputNumber.value = ""
-    console.log(turn)
 })
