@@ -13,10 +13,6 @@ let triedNumbersArray = []
 
 const info = document.getElementById("info")
 
-function congratulations(){
-    info.textContent = "Parabéns, Você acertou o número!"
-}
-
 const sendAnswer = document.getElementById("send-answer")
 
 const triedNumbers = document.getElementById("triedNumbers")
@@ -47,11 +43,20 @@ sendAnswer.addEventListener("click", () => {
     triedNumbersArray.push(Number(inputNumber.value))
 
     if(answer === Number(inputNumber.value)){
-        congratulations()
+        info.textContent = "Parabéns, Você acertou o número!"
         newGame(info, inputNumber)
         sendAnswer.disabled = true;
         inputNumber.disabled = true;
     }
+
+    if(answer > Number(inputNumber.value)){
+        info.textContent = "Você errou, número muito baixo!"
+    }
+
+    if(answer < Number(inputNumber.value)){
+        info.textContent = "Você errou, número muito alto!"
+    }
+
     triedNumbers.innerHTML = triedNumbersArray
     inputNumber.value = ""
 })
