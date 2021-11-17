@@ -51,12 +51,15 @@ sendAnswer.addEventListener("click", () => {
 
     if(answer > Number(inputNumber.value)){
         info.textContent = "Você errou, número muito baixo!"
+        turn++
     }
 
     if(answer < Number(inputNumber.value)){
         info.textContent = "Você errou, número muito alto!"
+        turn++
     }
 
     triedNumbers.innerHTML = triedNumbersArray
     inputNumber.value = ""
+    console.log(turn)
 })
