@@ -5,11 +5,109 @@
     overflow-x: hidden;
 }
 
+:root{
+    --main-color: rgb(81, 155, 240);
+}
+
 .container{
     width: 100%;
     min-height: 100vh;
-    padding-top: 100px;
 
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    padding: 0 50px;
+}
+
+header h1{
+    font-size: 80px;
+    color: var(--main-color);
+    border-bottom: 5px solid var(--main-color);
+    width: 100%;
+    text-align: center;
+}
+
+main{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 100px;
+}
+
+main #input-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+main #input-div input{
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+main #input-div input::placeholder{
+    color: var(--main-color);
+    font-weight: 300;
+}
+
+main #input-div input:focus{
+    outline: none;
+    border: 3px solid var(--main-color);
+}
+
+button{
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    color: white;
+    background: var(--main-color);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: linear .1s;
+}
+
+button:active{
+    opacity: .3;
+}
+
+main #attempts-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #attempts-div #triedNumbers{
+    color: var(--main-color);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+main #info{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--main-color);
 }

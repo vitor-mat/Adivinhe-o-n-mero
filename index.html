@@ -10,13 +10,15 @@
 </head>
 <body>
     <div class="container">
+        <header>
+            <h1>???Adivinhe o número???</h1>
+        </header>
         <main>
-            <div>
-                <span>Digite um número</span>
-                <input type="number" id="input-number">
+            <div id="input-div">
+                <input type="number" id="input-number" placeholder="DIGITE AQUI">
                 <button id="send-answer">Enviar palpite</button>
             </div>
-            <div>
+            <div id="attempts-div">
                 <span id="triedNumbers"></span>
             </div>
             <p id="info"></p>

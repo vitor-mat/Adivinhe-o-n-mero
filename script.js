@@ -2,7 +2,6 @@ let answer
 
 function randomNumber(){
     answer = Math.floor((Math.random()*100)+1)
-    alert(answer)
 }
 
 randomNumber()
@@ -22,6 +21,7 @@ const inputNumber = document.getElementById("input-number")
 function newGame(info, inputNumber){
     const newGameBtn = document.createElement("button")
     newGameBtn.textContent = "Iniciar novo Jogo"
+    newGameBtn.id = "btn-new-game"
     const main = document.getElementsByTagName("main")[0]
     main.appendChild(newGameBtn)
     newGameBtn.addEventListener("click", () => {
