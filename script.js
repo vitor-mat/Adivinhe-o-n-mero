@@ -51,16 +51,22 @@ sendAnswer.addEventListener("click", () => {
             newGame(info, inputNumber)
             sendAnswer.disabled = true;
             inputNumber.disabled = true;
+            var html = document.getElementsByTagName('html')[0];
+            html.setAttribute("style", "--main-color: #4de09b");
         }
     
         if(answer > Number(inputNumber.value)){
             info.textContent = "Você errou, número muito baixo!"
             turn++
+            var html = document.getElementsByTagName('html')[0];
+            html.setAttribute("style", "--main-color: #f05151");
         }
     
         if(answer < Number(inputNumber.value)){
             info.textContent = "Você errou, número muito alto!"
             turn++
+            var html = document.getElementsByTagName('html')[0];
+            html.setAttribute("style", "--main-color: #f05151");
         }
 
         if(turn > 10){
