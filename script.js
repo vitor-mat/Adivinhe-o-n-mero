@@ -24,6 +24,8 @@ function newGame(info, inputNumber){
     newGameBtn.id = "btn-new-game"
     const main = document.getElementsByTagName("main")[0]
     main.appendChild(newGameBtn)
+    inputNumber.style.opacity = ".5"
+    sendAnswer.style = "opacity: .5; cursor: auto"
     newGameBtn.addEventListener("click", () => {
         turn = 1
         inputNumber.disabled = false
@@ -36,6 +38,8 @@ function newGame(info, inputNumber){
         inputNumber.focus()
         let html = document.getElementsByTagName('html')[0];
         html.setAttribute("style", "--main-color: #519bf0");
+        inputNumber.style.opacity = "1"
+        sendAnswer.style = "opacity: 1; cursor: pointer"
     })
 }
 
