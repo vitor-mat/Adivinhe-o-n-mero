@@ -34,16 +34,16 @@ function newGame(info, inputNumber){
         triedNumbers.innerHTML = ""
         randomNumber()
         inputNumber.focus()
+        let html = document.getElementsByTagName('html')[0];
+        html.setAttribute("style", "--main-color: #519bf0");
+
     })
 }
 
-sendAnswer.addEventListener("click", () => {
-
+function gameFunction(){
     const info = document.getElementById("info")
+    let html = document.getElementsByTagName('html')[0];
 
-
-
-    triedNumbersArray.push(Number(inputNumber.value))
 
         if(!inputNumber.value.length){
             alert("Error: Campo de input está vazio!!")
@@ -62,21 +62,18 @@ sendAnswer.addEventListener("click", () => {
             newGame(info, inputNumber)
             sendAnswer.disabled = true;
             inputNumber.disabled = true;
-            var html = document.getElementsByTagName('html')[0];
             html.setAttribute("style", "--main-color: #4de09b");
         }
     
         if(answer > Number(inputNumber.value)){
             info.textContent = "Você errou, número muito baixo!"
             turn++
-            var html = document.getElementsByTagName('html')[0];
             html.setAttribute("style", "--main-color: #f05151");
         }
     
         if(answer < Number(inputNumber.value)){
             info.textContent = "Você errou, número muito alto!"
             turn++
-            var html = document.getElementsByTagName('html')[0];
             html.setAttribute("style", "--main-color: #f05151");
         }
 
@@ -87,10 +84,13 @@ sendAnswer.addEventListener("click", () => {
             inputNumber.disabled = true;
         }
 
+    triedNumbersArray.push(Number(inputNumber.value))
 
     triedNumbers.innerHTML = triedNumbersArray
     inputNumber.value = ""
     inputNumber.focus()
-})
+}
+
+sendAnswer.addEventListener("click", gameFunction)
 
 inputNumber.focus()
