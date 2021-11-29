@@ -36,7 +36,6 @@ function newGame(info, inputNumber){
         inputNumber.focus()
         let html = document.getElementsByTagName('html')[0];
         html.setAttribute("style", "--main-color: #519bf0");
-
     })
 }
 
@@ -96,6 +95,11 @@ sendAnswer.addEventListener("click", gameFunction)
 document.addEventListener("keydown", e => {
     if(e.key === "Enter" && document.activeElement.id === "input-number"){
         gameFunction()
+        return;
+    }
+
+    if(e.key === "Enter"){
+        document.getElementById("btn-new-game").click()
     }
 })
 
