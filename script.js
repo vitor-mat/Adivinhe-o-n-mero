@@ -50,6 +50,12 @@ sendAnswer.addEventListener("click", () => {
             return;
         }
 
+        if(0 > Number(inputNumber.value) || 100 < Number(inputNumber.value)){
+            alert("Error: o número está entre 0 e 100")
+            inputNumber.value = ""
+            inputNumber.focus()
+            return;
+        }
 
         if(answer === Number(inputNumber.value)){
             info.textContent = "Parabéns, Você acertou o número!"
