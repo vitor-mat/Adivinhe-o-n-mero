@@ -45,6 +45,11 @@ sendAnswer.addEventListener("click", () => {
 
     triedNumbersArray.push(Number(inputNumber.value))
 
+        if(!inputNumber.value.length){
+            alert("Error: Campo de input está vazio!!")
+            return;
+        }
+
 
         if(answer === Number(inputNumber.value)){
             info.textContent = "Parabéns, Você acertou o número!"
