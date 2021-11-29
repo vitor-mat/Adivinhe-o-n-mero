@@ -93,4 +93,11 @@ function gameFunction(){
 
 sendAnswer.addEventListener("click", gameFunction)
 
+document.addEventListener("keydown", e => {
+    if(e.key === "Enter" && document.activeElement.id === "input-number"){
+        gameFunction()
+    }
+})
+
 inputNumber.focus()
+
